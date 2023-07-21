@@ -1,0 +1,12 @@
+.page {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    background-color: black;
+    min-width: 300px;
+    margin: 0 auto;
+    width: 100%;
+}
