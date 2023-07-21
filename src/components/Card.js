@@ -14,7 +14,7 @@ export default function Card(props) {
             <div className="element__caption">
                 <h2 className="element__caption-title">{props.card.name}</h2>
                 <div className="element__caption-like-section">
-                    <button className="element__caption-button" type="button"></button>
+                    <button className="element__caption-button" type="button"/>
                     <p className="element__caption-like-counter">{props.card.likes.length}</p>
                 </div>
             </div>

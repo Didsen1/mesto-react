@@ -12,7 +12,7 @@ export default function App() {
     const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
     const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
 
-    const [selectedCard, setSelectedCard] = React.useState('');
+    const [selectedCard, setSelectedCard] = React.useState({name: '', link: ''});
 
     function handleEditAvatarClick() {
         setEditAvatarPopupOpen(!isEditAvatarPopupOpen);
@@ -30,11 +30,11 @@ export default function App() {
         setEditProfilePopupOpen(false);
         setAddPlacePopupOpen(false);
         setEditAvatarPopupOpen(false);
-        setSelectedCard('');
+        setSelectedCard({name: '', link: ''});
     }
 
     function handleCardClick(card) {
-        setSelectedCard(card)
+        setSelectedCard({name: card.name, link: card.link})
     }
 
 
@@ -54,6 +54,7 @@ export default function App() {
                 name='profile'
                 isOpen={isEditProfilePopupOpen}
                 title='Редактировать профиль'
+                buttonText='Сохранить'
                 onClose={closeAllPopups}
                 children={
                     <>
@@ -74,6 +75,7 @@ export default function App() {
                 name='add'
                 isOpen={isAddPlacePopupOpen}
                 title='Новое место'
+                buttonText='Создать'
                 onClose={closeAllPopups}
                 children={
                     <>
@@ -93,6 +95,7 @@ export default function App() {
                 name='avatar'
                 isOpen={isEditAvatarPopupOpen}
                 title='Обновить аватар'
+                buttonText='Сохранить'
                 onClose={closeAllPopups}
                 children={
                     <>
@@ -105,6 +108,7 @@ export default function App() {
                 } />
             <PopupWithForm
                 name='delete'
+                buttonText='Да'
                 title='Вы уверены?' />
             <ImagePopup
                 card={selectedCard}

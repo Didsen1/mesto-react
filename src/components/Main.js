@@ -32,26 +32,21 @@ export default function Main(props) {
                     <div className="profile__info">
                         <div className="profile__info-container-crutch">
                             <h1 className="profile__info-title">{userName}</h1>
-                            <button className="profile__info-edit-button" type="button" onClick={props.onEditProfile}></button>
+                            <button className="profile__info-edit-button" type="button" onClick={props.onEditProfile} />
                         </div>
                         <p className="profile__info-subtitle">{userDescription}</p>
                     </div>
                 </div>
-                <button className="profile__add-button" type="button" onClick={props.onAddPlace}>
-                </button>
+                <button className="profile__add-button" type="button" onClick={props.onAddPlace} />
 
             </section>
 
             <section className="elements">
-                {cards.map(card =>
-                    <Card
-                        key={card._id}
-                        card={card}
-                        onCardClick={props.onCardClick}
-                    />
-                )}
+                {cards.map((card) => (
+                    <Card key={card._id} card={card} onCardClick={props.onCardClick} />
+                ))}
             </section>
 
         </main>
     );
-}
+} 
