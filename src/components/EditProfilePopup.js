@@ -13,7 +13,7 @@ export default function EditProfilePopup(props) {
         setName(evt.target.value);
     }
 
-    function hanldeChangeDescription(evt) {
+    function handleChangeDescription(evt) {
         setDescription(evt.target.value);
     }
 
@@ -33,9 +33,16 @@ export default function EditProfilePopup(props) {
         setDescription(currentUser.about);
     }, [currentUser]);
 
+    React.useEffect(() => {
+        if (props.isOpen) {
+          setName(currentUser.name || '');
+          setDescription(currentUser.about || '');
+        }
+      }, [currentUser, props.isOpen]);
+
     return (
         <PopupWithForm
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit} 
             name='profile'
             isOpen={props.isOpen}
             title='Редактировать профиль'
@@ -50,7 +57,7 @@ export default function EditProfilePopup(props) {
                     </label>
                     <label className="popup__form-label">
                         <input type="text" className="popup__input" name="subtitle" placeholder="Введите название профессии"
-                            required minLength="2" maxLength="200" id="subtitle-input" value={description || ""} onChange={hanldeChangeDescription} />
+                            required minLength="2" maxLength="200" id="subtitle-input" value={description || ""} onChange={handleChangeDescription} />
                         <span className="popup__input-error subtitle-input-error">1</span>
                     </label>
                 </>

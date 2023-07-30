@@ -13,7 +13,6 @@ import ConfirmPopup from './ConfirmPopup.js';
 
 export default function App() {
 
-
     const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
     const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
     const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
@@ -130,7 +129,6 @@ export default function App() {
     return (
         <CurrentUserContext.Provider value={currentUser}>
             <>
-
                 <Header />
                 <Main cards={cards} onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} onCardLike={handleCardLike} onCardDelete={handleConfirmPopupOpen} />
                 <Footer />

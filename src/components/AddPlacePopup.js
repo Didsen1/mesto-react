@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 
 export default function AddPlacePopup(props) {
-    
+
     const [name, setName] = useState('');
     const [link, setLink] = useState('');
 
@@ -27,6 +27,13 @@ export default function AddPlacePopup(props) {
         });
     }
 
+    React.useEffect(() => {
+        if (props.isOpen) {
+            setName('')
+            setLink('')
+        }
+    }, [props.isOpen]);
+
 
     return (
 
@@ -46,7 +53,7 @@ export default function AddPlacePopup(props) {
                     </label>
                     <label className="popup__form-label">
                         <input type="url" className="popup__input" name="image" placeholder="Ссылка на картинку" required
-                            id="image-input" value={link} onChange={hanldeChangeLink}  />
+                            id="image-input" value={link} onChange={hanldeChangeLink} />
                         <span className="popup__input-error image-input-error">1</span>
                     </label>
                 </>
