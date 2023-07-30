@@ -22,13 +22,13 @@ class Api {
         }).then(this._checkResponse);
     }
 
-    changeUserInfo({ title, subtitle }) {
+    changeUserInfo({ name, about }) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                name: title,
-                about: subtitle,
+                name: name,
+                about: about,
             }),
         }).then(this._checkResponse);
     }
@@ -43,16 +43,24 @@ class Api {
         }).then(this._checkResponse);
     }
 
-    addCard({ place,image }) {
+    addCard({ name,link }) {
         return fetch(`${this._baseUrl}/cards`, {
             method: "POST",
             headers: this._headers,
             body: JSON.stringify({
-                name: place,
-                link: image,
+                name: name,
+                link: link,
             }),
         }).then(this._checkResponse);
     }
+
+    changeLikeCardStatus(id, isLiked) {
+        if (isLiked) {
+          return this.deleteLike(id);
+        } else {
+          return this.addLike(id);
+        }
+      }
 
     addLike(id) {
         return fetch(`${this._baseUrl}/cards/${id}/likes`, {
