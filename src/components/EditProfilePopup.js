@@ -29,11 +29,6 @@ export default function EditProfilePopup(props) {
     }
 
     React.useEffect(() => {
-        setName(currentUser.name);
-        setDescription(currentUser.about);
-    }, [currentUser]);
-
-    React.useEffect(() => {
         if (props.isOpen) {
           setName(currentUser.name || '');
           setDescription(currentUser.about || '');
